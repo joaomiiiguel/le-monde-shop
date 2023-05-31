@@ -1,7 +1,9 @@
+"use client";
 import Homepage from "../view/homepage";
 import Layout from "../@core/layout";
 
-export default function Home() {
+export default async function Home() {
+
   return (
     <Layout>
       <Homepage />
