@@ -7,7 +7,7 @@ type Props = {
 
 export default function index({children}: Props) {
   return (
-    <div className='min-h-screen w-screen'>
+    <div className='max-w-screen overflow-x-hidden'>
         <Navbar/>
         {children}
     </div>

@@ -20,7 +20,7 @@ export default function Navbar() {
   const [modalShop, setModalShop] = useState<null | HTMLElement>(null);
 
   return (
-    <div className="flex flex-row justify-between items-center px-20 h-[70px] w-full fixed bg-white mt-4">
+    <div className="flex flex-row justify-between items-center px-20 h-[70px] w-full fixed bg-white mt-4 z-50">
       <Link href={"/"}>
         <Image src={Logo} alt="Logo Le monde" />
       </Link>
