@@ -24,6 +24,7 @@ const Homepage = () => {
   function getProducts() {
     client.product.fetchAll().then((products) => {
       console.log(products);
+      console.log(products);
       
       const newItems = products.map((product) => {
         return {
