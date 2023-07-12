@@ -6,8 +6,8 @@ import { ButtonOutline } from "../Button";
 import PriceValue from "./priceValue";
 
 interface IProductsDetails {
-  description: String;
-  handle: String;
+  description: string;
+  handle: string;
   key: React.Key;
   imagesCover: HTMLImageElement | string;
   title: string;

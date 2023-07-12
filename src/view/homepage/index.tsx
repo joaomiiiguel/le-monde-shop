@@ -8,13 +8,13 @@ import Image from "next/image";
 import ImageGirl from "../../../public/girlCover.png";
 
 type IProducts = {
-  description: String;
-  handle: String;
+  description: string;
+  handle: string;
   key: React.Key;
   imagesCover: HTMLImageElement | string;
-  title: String;
+  title: string;
   price: React.ReactNode;
-  currency: String;
+  currency: string;
 };
 
 const Homepage = () => {

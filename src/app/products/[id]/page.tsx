@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { client } from "@/libs/shopify";
+import { client } from "../../../libs/shopify";
 import Layout from "../../../@core/layout";
 import Image from "next/image";
 import FormControl from "@mui/material/FormControl";
@@ -42,19 +42,19 @@ export default function Page({ params }: { params: { id: string } }) {
           <p className="text-2xl font-semibold pb-4">Carregando...</p>
         </div>
       ) : (
-        <div className="flex flex-col w-full justify-between px-20 pt-[100px] space-x-8">
+        <div className="flex flex-col w-full overflow-hidden justify-between px-20 pt-[100px] space-y-4">
           <div className="flex flex-col md:flex-row w-full justify-between space-x-8">
-            <div className="flex md:w-1/2 overflow-hidden">
+            <div className="flex flex-col justify-center items-center max-h-[70vh]">
               <Image
                 src={productsDetail?.images[0].src}
                 alt="Product"
                 priority
-                className="w-full h-auto"
+                className="h-full"
                 width={450}
-                height={400}
+                height={600}
               />
             </div>
-            <div className="flex flex-col md:w-1/2 space-y-4">
+            <div className="flex flex-col w-full md:w-1/2 space-y-4">
               <p className="text-2xl font-semibold pb-4">
                 {productsDetail?.title}
               </p>
@@ -67,7 +67,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   Plus que 12 articles restants
                 </p>
               </div>
-              <FormControl fullWidth size="small">
+              <FormControl size="small">
                 <InputLabel id="demo-simple-select-label">Options</InputLabel>
                 <Select
                   labelId="select-label-options"
@@ -97,17 +97,17 @@ export default function Page({ params }: { params: { id: string } }) {
                   Acheter Maintenant
                 </Button>
                 <ButtonOutline fullWidth handleClick={() => {}}>
-                  Ajouter ou painer
+                  Ajouter au panier
                 </ButtonOutline>
               </div>
             </div>
           </div>
-          <div>
-            <div className="pb-4">
+          <div className="w-full space-y-4">
+            <div className="p-4 border border-gray border-opacity-30 rounded-lg">
               <p className="text-lg font-semibold text-primary mb-4">Description</p>
               <p>{productsDetail.description}</p>
             </div>
-            <div className="pb-4">
+            <div className="p-4 border border-gray border-opacity-30 rounded-lg">
               <p className="text-lg font-semibold text-primary mb-4">Spécifications Techiniques</p>
               <p>{productsDetail.description}</p>
             </div>
