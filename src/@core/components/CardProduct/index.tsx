@@ -5,11 +5,15 @@ import Link from "next/link";
 import { ButtonOutline } from "../Button";
 import PriceValue from "./priceValue";
 
+import { useSelector, useDispatch } from "react-redux";
+import { addtoCart } from "../../../redux/slices/cartSlice";
+import { ItemCart } from "@/redux/types";
+
 interface IProductsDetails {
-  description: String;
-  handle: String;
+  description: string;
+  handle: string;
   key: React.Key;
-  imagesCover: HTMLImageElement | string;
+  imagesCover: string;
   title: string;
   price: ReactNode;
   currency: string;
@@ -24,9 +28,31 @@ const CardProduct = ({
   currency,
   imagesCover,
 }: IProductsDetails) => {
+  const dataRedux = useSelector((state: any) => state);
+  const dispatch = useDispatch();
+
+  function addToCart() {
+    console.log( typeof imagesCover)
+    const newItem: ItemCart = {
+      id: key,
+      nameProduct: title,
+      imagesCover: imagesCover,
+      price: price,
+      amount: 1,
+    };
+
+    dispatch(addtoCart(newItem));
+  }
+
   return (
-    <div className="flex flex-col justify-between items-stretch w-fit h-[500px] space-y-2" key={key}>
-      <Link href={`/products/${handle}`} className="flex flex-col h-full justify-between">
+    <div
+      className="flex flex-col justify-between items-stretch w-fit h-[500px] space-y-2"
+      key={key}
+    >
+      <Link
+        href={`/products/${handle}`}
+        className="flex flex-col h-full justify-between"
+      >
         <div className="border border-gray-light hover:opacity-70 rounded-xl w-full flex max-h-[300px] justify-center h-4/6 overflow-hidden items-center">
           <Image
             src={imagesCover}
@@ -46,7 +72,7 @@ const CardProduct = ({
           </p>
         </div>
       </Link>
-      <ButtonOutline handleClick={() => console.log("Butão carrinho")}>
+      <ButtonOutline handleClick={() => addToCart()}>
         Ajouter au panier
       </ButtonOutline>
     </div>
